@@ -1,7 +1,8 @@
 from sessions.silueta import SiluetaSession
 from PIL import Image
 from PIL.Image import Image as PILImage
-
+from functools import lru_cache
+@lru_cache(maxsize=128, typed=False)
 def generate_mask(image_path: str) -> list[PILImage]:
     img = Image.open(image_path)
     predictor = SiluetaSession('silueta', None)
