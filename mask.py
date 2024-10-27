@@ -8,7 +8,8 @@ def generate_mask(image_path: str) -> list[PILImage]:
     masks = predictor.predict(img)
     return masks
 
-i = 1
-for mask in generate_mask('images/cat.jpg'):
-    mask.save('mask' + str(i) + '.png', 'png')
-    i += 1
+if __name__ == "__main__":
+    i = 1
+    for mask in generate_mask('images/cat.jpg'):
+        mask.save('mask' + str(i) + '.png', 'png')
+        i += 1    
